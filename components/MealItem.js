@@ -6,10 +6,10 @@ const MealItem = (props) => {
     <View>
       <TouchableOpacity onPress={props.onSelect}>
         <View>
-          <View style={styles.mealRow}>
+          <View style={{ ...styles.mealRow,...styles.mealHeader}}>
             <Text>{title}</Text>
           </View>
-          <View style={styles.mealRow}></View>
+          <View style={{ ...styles.mealRow, ...styles.mealDetail}}></View>
         </View>
       </TouchableOpacity>
     </View>
@@ -24,5 +24,12 @@ const styles = StyleSheet.create({
   mealRow: {
     flexDirection: "row",
   },
+  mealHeader: {
+    height: '80%',
+    
+  }
+  mealDetail: {
+    
+  }
 });
 export default MealItem;

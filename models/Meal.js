@@ -5,7 +5,7 @@ class Meal {
     id,
     categoryIds,
     title,
-    affordibility,
+    affordability,
     complexity,
     imageUrl,
     duration,
@@ -16,18 +16,18 @@ class Meal {
     isVegetarian,
     isLactoseFree
   ) {
-      this.id=id;
-      this.categoryIds=categoryIds;
-      this.title=title;
-      this.imageUrl=imageUrl;
-      this.ingredients=ingredients;
-      this.steps=steps;
-      this.duration=duration;
-      this.complexity=complexity;
-      this.isGlutenFree=isGlutenFree;
-      this.isLactoseFree=isLactoseFree;
-      this.isVegan=isVegan;
-      this.isVegetarian=isVegetarian;
+    this.id = id;
+    this.categoryIds = categoryIds;
+    this.title = title;
+    this.imageUrl = imageUrl;
+    this.ingredients = ingredients;
+    this.steps = steps;
+    this.duration = duration;
+    this.complexity = complexity;
+    this.isGlutenFree = isGlutenFree;
+    this.isLactoseFree = isLactoseFree;
+    this.isVegan = isVegan;
+    this.isVegetarian = isVegetarian;
   }
 }
 

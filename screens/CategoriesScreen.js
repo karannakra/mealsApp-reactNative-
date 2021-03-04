@@ -1,19 +1,32 @@
 import React from "react";
-import { StyleSheet, View, Text, Button } from "react-native";
+import {
+  StyleSheet,
+  View,
+  Text,
+  Button,
+  FlatList,
+  TouchableOpacity,
+  Platform,
+} from "react-native";
+import { CATEGORIES } from "../data/dummy-data";
+import Colors from "../constant/Colors";
+import CategoriesMealScreen from "./CategoryMealScreen";
+import CategoryGridTile from "../components/CategoryGridTile";
 
 const CategoriesScreen = (props) => {
+  const renderGridItem = (itemData) => {
+    return <CategoryGridTile title={itemdData.item.title} />;
+  };
   return (
-    <View>
-      <Text>The Categories Screen!</Text>
-      <Button
-        title="go to meal"
-        onPress={() => {
-          props.navigation.navigate({ routeName: "CategoriesMeals" });
-        }}
-      />
-    </View>
+    <FlatList
+      keyExtractor={(item, index) => item.id}
+      data={CATEGORIES}
+      renderItem={renderGridItem}
+      numColumns={2}
+    />
   );
 };
+
 const styles = StyleSheet.create({
   screen: {
     flex: 1,

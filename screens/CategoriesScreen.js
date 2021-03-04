@@ -15,7 +15,20 @@ import CategoryGridTile from "../components/CategoryGridTile";
 
 const CategoriesScreen = (props) => {
   const renderGridItem = (itemData) => {
-    return <CategoryGridTile title={itemdData.item.title} />;
+    return (
+      <CategoryGridTile
+        color={itemData.item.color}
+        title={itemData.item.title}
+        onSelect={() => {
+          props.navigation.navigate({
+            routeName: "CategoriesMeals",
+            params: {
+              categoryId: itemData.item.id,
+            },
+          });
+        }}
+      />
+    );
   };
   return (
     <FlatList

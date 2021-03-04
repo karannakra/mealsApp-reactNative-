@@ -11,7 +11,16 @@ const CategoriesMealScreen = (props) => {
   );
 
   const renderItem = (itemData) => {
-    return <MealItem title={itemData.item.title} onSelect={() => {}} />;
+    return (
+      <MealItem
+        title={itemData.item.title}
+        image={itemData.item.imageUrl}
+        complexity={itemData.item.complexity}
+        affordability={itemData.item.affordability}
+        duration={itemData.item}
+        onSelect={() => {}}
+      />
+    );
   };
 
   return (

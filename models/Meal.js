@@ -1,11 +1,9 @@
-import { lazy } from "react";
-
 class Meal {
   constructor(
     id,
     categoryIds,
     title,
-    affordability,
+    affordable,
     complexity,
     imageUrl,
     duration,
@@ -20,6 +18,7 @@ class Meal {
     this.categoryIds = categoryIds;
     this.title = title;
     this.imageUrl = imageUrl;
+    this.affordable = affordable;
     this.ingredients = ingredients;
     this.steps = steps;
     this.duration = duration;

@@ -10,7 +10,7 @@ import {
 
 const CategoryGridTile = (props) => {
   let TouchableCmp = TouchableOpacity;
-  if ((Platform.OS = "android" && Platform.Version >= 21)) {
+  if (Platform.OS == "android") {
     TouchableCmp = TouchableNativeFeedback;
   }
   return (
@@ -33,21 +33,21 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     overflow: "hidden",
     height: 150,
+    elevation: 10,
+    shadowColor: "black",
+    shadowOpacity: 0.26,
+    shadowOffset: { width: 0, height: 2 },
+    shadowRadius: 10,
   },
   container: {
     flex: 1,
     borderRadius: 10,
-    shadowColor: "black",
-    shadowOpacity: 0.26,
-    shadowOffset: { width: 0, height: 2 },
-    elevation: 10,
-    shadowRadius: 10,
     alignItems: "flex-end",
     padding: 10,
     justifyContent: "flex-end",
   },
   title: {
-    fontFamily: "open-sans-bold",
+    fontFamily: "open-sans",
     fontSize: 22,
     textAlign: "right",
   },

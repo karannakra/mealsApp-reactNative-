@@ -8,7 +8,7 @@ import { createBottomTabNavigator } from "react-navigation-tabs";
 import CategoriesMealScreen from "../screens/CategoryMealScreen";
 import { createMaterialBottomTabNavigator } from "react-navigation-material-bottom-tabs";
 import MealDetailScreen from "../screens/MealDetailScreen";
-import { Platform } from "react-native";
+import { Platform, Text } from "react-native";
 import Colors from "../constant/Colors";
 import FavoriteScreen from "../screens/FavoriteScreen";
 import FilterScreen from "../screens/FilterScreen";
@@ -19,6 +19,9 @@ const defaultNavigation = {
     headerStyle: {
       backgroundColor:
         Platform.OS === "android" ? Colors.primaryColor : "white",
+    },
+    headerTitleStyle: {
+      fontFamily: "open-sans-bold",
     },
     headerTintColor: Platform.OS === "android" ? "white" : Colors.primaryColor,
   },
@@ -52,6 +55,12 @@ const tabScreenConfig = {
     screen: MealsNavigator,
     navigationOptions: {
       tabBarColor: Colors.primaryColor,
+      tabBarLabel:
+        Platform.OS == "android" ? (
+          <Text style={{ fontFamily: "open-sans-bold" }}>Meals</Text>
+        ) : (
+          "Meals"
+        ),
       tabBarIcon: (tabInfo) => {
         return (
           <Ionicons name="ios-restaurant" size={23} color={tabInfo.tintColor} />
@@ -62,8 +71,13 @@ const tabScreenConfig = {
   Favorites: {
     screen: favoriteNavigator,
     navigationOptions: {
-      tabBarLabel: "Favorites!",
       tabBarColor: Colors.accentColor,
+      tabBarLabel:
+        Platform.OS == "android" ? (
+          <Text style={{ fontFamily: "open-sans-bold" }}>Favorites</Text>
+        ) : (
+          "Favorites"
+        ),
       tabBarIcon: (tabInfo) => {
         return <Ionicons name="ios-star" size={23} color={tabInfo.tintColor} />;
       },
@@ -82,6 +96,9 @@ const MealsFavTabNavigator =
       })
     : createBottomTabNavigator(tabScreenConfig, {
         tabBarOptions: {
+          labelStyle: {
+            fontFamily: "open-sans-bold",
+          },
           activeTintColor: Colors.accentColor,
         },
       });
